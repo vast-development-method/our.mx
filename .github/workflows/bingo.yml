@@ -1,0 +1,60 @@
+name: Bingo
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 2 * * *' # Daily at 02:17 UTC / 04:17 Namibia time.
+
+permissions:
+  contents: write # OctoMailTest commits the anonymized run history.
+
+# Share this group with every future workflow that commits history here.
+concurrency:
+  group: octomailtest-history
+  cancel-in-progress: false
+
+jobs:
+  bingo:
+    name: Bingo
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Check Bingo secrets
+        shell: bash
+        env:
+          BINGO_DOMAIN: ${{ secrets.BINGO_DOMAIN }}
+          BINGO_HOST: ${{ secrets.BINGO_HOST }}
+          BINGO_EMAIL: ${{ secrets.BINGO_EMAIL }}
+          BINGO_PASS: ${{ secrets.BINGO_PASS }}
+        run: |
+          missing=0
+          for secret in BINGO_DOMAIN BINGO_HOST BINGO_EMAIL BINGO_PASS; do
+            if [[ -z "${!secret}" ]]; then
+              echo "::error title=Bingo configuration::Required repository secret ${secret} is missing."
+              missing=1
+            fi
+          done
+          exit "$missing"
+
+      - name: Test Bingo and record history
+        uses: octoleo/octomailtest@8a22a2e67f5c09e65712dd39818358e8db38dc0c # Reviewed privacy and history implementation.
+        with:
+          domain: ${{ secrets.BINGO_DOMAIN }}
+          host: ${{ secrets.BINGO_HOST }}
+          email: ${{ secrets.BINGO_EMAIL }}
+          pass: ${{ secrets.BINGO_PASS }}
+          imap-port: ${{ secrets.BINGO_IMAP_PORT }}
+          smtp-port: ${{ secrets.BINGO_SMTP_PORT }}
+          sieve-port: ${{ secrets.BINGO_SIEVE_PORT }}
+          mode: both
+          private: 'true'
+          alias: Bingo
+          quiet: 'false'
+          history: 'true'
+          history-keep: '10'
+          history-dir: octomailtest-history
+          history-commit: 'true'
+          report-dir: bingo-report
+          artifact-name: Bingo-report
+          fail-on-error: 'true'
