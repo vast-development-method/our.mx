@@ -33,8 +33,13 @@ secret**. Keep the actual values in secrets, including the domain and host.
 | `BINGO_EMAIL` | Mailbox address used for authentication and the send-to-self test (required) |
 | `BINGO_PASS` | Mailbox password (required) |
 | `BINGO_IMAP_PORT` | Optional IMAPS port; defaults to `993` |
-| `BINGO_SMTP_PORT` | Optional SMTP submission port; defaults to `587` |
 | `BINGO_SIEVE_PORT` | Optional ManageSieve port; defaults to `4190` |
+
+Bingo uses OctoMailTest's default SMTP submission port, `587`, with STARTTLS.
+The diagnostic script separately checks implicit TLS (SMTPS) on port `465`.
+`BINGO_SMTP_PORT` is no longer read by this workflow; an existing secret with
+that name can be removed. This prevents an SMTP port override from directing
+the STARTTLS authentication and send tests to the implicit-TLS port.
 
 Once the workflow is merged and the secrets are set, open **Actions → Bingo →
 Run workflow**, select **main**, and start the first run. Other branches are
