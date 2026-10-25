@@ -38,14 +38,17 @@ jobs:
           exit "$missing"
 
       - name: Test Bingo and record history
-        uses: octoleo/octomailtest@b56f4a41eb90a624e26727677387857ca1984e54 # Private diagnostics with live output and retained history.
+        uses: octoleo/octomailtest@a263f192343f6d280c0ee9d0cd36a4283923ac09 # Secure SMTP transport, private live output and retained history.
         with:
           domain: ${{ secrets.BINGO_DOMAIN }}
           host: ${{ secrets.BINGO_HOST }}
           email: ${{ secrets.BINGO_EMAIL }}
           pass: ${{ secrets.BINGO_PASS }}
           imap-port: ${{ secrets.BINGO_IMAP_PORT }}
-          # Use the action's STARTTLS submission default; SMTPS is checked separately.
+          smtp-port: ${{ secrets.BINGO_SMTP_PORT }}
+          smtp-tls-mode: ${{ secrets.BINGO_SMTP_TLS_MODE }}
+          smtp-starttls-port: ${{ secrets.BINGO_SMTP_STARTTLS_PORT }}
+          smtps-port: ${{ secrets.BINGO_SMTPS_PORT }}
           sieve-port: ${{ secrets.BINGO_SIEVE_PORT }}
           mode: both
           private: 'true'

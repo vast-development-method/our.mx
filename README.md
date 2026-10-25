@@ -33,22 +33,29 @@ secret**. Keep the actual values in secrets, including the domain and host.
 | `BINGO_EMAIL` | Mailbox address used for authentication and the send-to-self test (required) |
 | `BINGO_PASS` | Mailbox password (required) |
 | `BINGO_IMAP_PORT` | Optional IMAPS port; defaults to `993` |
+| `BINGO_SMTP_PORT` | SMTP authentication/send port; use the server's SMTPS port for implicit TLS. If unset, defaults to `587` with STARTTLS |
+| `BINGO_SMTP_TLS_MODE` | Optional `auto`, `implicit`, or `starttls`; `auto` selects implicit TLS for port `465` and STARTTLS otherwise. Set `implicit` for a custom SMTPS port |
+| `BINGO_SMTP_STARTTLS_PORT` | Optional separate STARTTLS check port; defaults to the submission port in STARTTLS mode, otherwise `587` |
+| `BINGO_SMTPS_PORT` | Optional separate SMTPS check port; defaults to the submission port in implicit TLS mode, otherwise `465` |
 | `BINGO_SIEVE_PORT` | Optional ManageSieve port; defaults to `4190` |
 
-Bingo uses OctoMailTest's default SMTP submission port, `587`, with STARTTLS.
-The diagnostic script separately checks implicit TLS (SMTPS) on port `465`.
-`BINGO_SMTP_PORT` is no longer read by this workflow; an existing secret with
-that name can be removed. This prevents an SMTP port override from directing
-the STARTTLS authentication and send tests to the implicit-TLS port.
+Bingo reads `BINGO_SMTP_PORT` for the authentication and send tests. A value of
+`465` uses SMTPS: TLS starts immediately, before SMTP commands. IMAPS likewise
+uses TLS immediately, normally on `993`. The existing separate SMTPS and
+STARTTLS checks both remain enabled; STARTTLS normally uses `587` and upgrades
+the connection to TLS before authentication. There is no plaintext fallback.
+The extra secrets allow custom ports and an explicit TLS mode; they can be
+left unset for standard ports. Keep all actual server settings in secrets.
 
 Once the workflow is merged and the secrets are set, open **Actions → Bingo →
 Run workflow**, select **main**, and start the first run. Other branches are
 skipped. Missing required secrets fail the configuration check before any
 diagnostics run or history is recorded.
 
-The workflow uses the merged privacy/history action at a fixed commit. It
-runs both existing diagnostic scripts with their original tests and pass/fail
-rules. Private mode is enabled and quiet mode is disabled. Failure notifications
+The workflow pins the action to a fixed commit. It runs both diagnostic scripts,
+keeps the full set of checks and existing pass/fail rules, and selects the TLS
+connection mode appropriate to the configured port. Private mode is enabled
+and quiet mode is disabled. Failure notifications
 follow your GitHub Actions notification settings.
 
 ### History and additional servers
