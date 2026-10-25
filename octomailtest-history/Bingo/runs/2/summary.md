@@ -1,0 +1,344 @@
+## :email: OctoMailTest report: :x: FAILED
+
+| Target | |
+|---|---|
+| Domain | [Bingo host] |
+| Host | [Bingo host] |
+| Mailbox | [Bingo email] |
+| Ports | IMAP 993 / SMTP 465 / Sieve 4190 |
+| Mode | `both` |
+| Started | 2026-10-25T07:37:01Z |
+| Duration | 15m 41s |
+| Version | OctoMailTest 1.0.1 |
+
+| Diagnostic | Result |
+|---|---|
+| Mail (`src/mail`) | :alarm_clock: timed out after 900s |
+| IMAP (`src/imap`) | :white_check_mark: passed |
+
+**Critical failures:** 6 / **Warnings:** 7
+
+### :x: Failures
+
+- Unable to fetch certificate via SMTP STARTTLS on 465
+- SMTP EHLO over STARTTLS failed
+- AUTH not advertised in EHLO response (clients may not be able to authenticate)
+- SMTP AUTH failed
+- Failed to send test email via SMTP
+- mail diagnostics timed out after 900s (raise the timeout input)
+
+### :warning: Warnings
+
+- No SPF record found
+- Could not get Sieve capabilities
+- Sieve authentication test incomplete
+- PIPELINING not advertised
+- SIZE not current advertised
+- 8BITMIME not advertised
+- DSN not advertised
+
+<details>
+<summary>:page_facing_up: Full report (report.txt)</summary>
+
+```text
+#################################################
+# OctoMailTest 1.0.1 - GitHub Action report
+#################################################
+# Started:     2026-10-25T07:37:01Z
+# Mode:        both
+# Domain:      [Bingo host]
+# Host:        [Bingo host]
+# Mailbox:     [Bingo email]
+# IMAP port:   993
+# SMTP port:   465
+# Sieve port:  4190
+# Config file: (none)
+# Runner:      Linux X64 (Bingo runner)
+# Workflow:    vast-development-method/[Bingo related host] run 2 (id 40173428435, attempt 1)
+# Run URL:     https://github.com/vast-development-method/[Bingo related host]/actions/runs/40173428435
+#################################################
+
+=================================================
+ Mail Diagnostics for [Bingo host]
+=================================================
+
+🔎 MX records
+
+🔎 SPF record
+[2026-10-25 07:37:01] ⚠️  No SPF record found
+
+🔎 DMARC record
+
+🔎 DKIM selectors (common)
+Selector: dkim
+Selector: default
+Selector: mail
+
+🔎 BIMI record (optional)
+
+🔎 MTA-STS policy (optional)
+
+🔎 TLS-RPT record (optional)
+
+=================================================
+ SMTP/IMAP/SIEVE Port Reachability ([Bingo host])
+=================================================
+Port 25: ✅ open
+Port 465: ✅ open
+Port 587: ✅ open
+Port 993: ✅ open
+Port 4190: ✅ open
+
+=================================================
+ STARTTLS on 465
+=================================================
+[2026-10-25 07:42:03] ❌ Unable to fetch certificate via SMTP STARTTLS on 465
+
+=================================================
+ SMTPS on 465
+=================================================
+subject=[Bingo certificate identity]
+issuer=[Bingo certificate identity]
+notBefore=Sep 22 23:02:17 2026 GMT
+notAfter=Dec 21 23:02:16 2026 GMT
+
+========================================
+ Mail Connectivity Diagnostic
+ Host: [Bingo host]
+ User: [Bingo email]
+========================================
+
+=================================================
+ DNS resolution (A record) for host
+=================================================
+[Bingo IP]
+
+=================================================
+ Reverse DNS check
+=================================================
+✅ PTR record found: [Bingo host]
+✅ PTR record matches hostname
+
+=================================================
+ Blacklist check (common RBLs)
+=================================================
+✅ NOT listed on zen.spamhaus.org
+✅ NOT listed on bl.spamcop.net
+✅ NOT listed on b.barracudacentral.org
+✅ NOT listed on dnsbl.sorbs.net
+
+=================================================
+ TLS test (IMAPS)
+=================================================
+Connecting to [Bingo IP]
+CONNECTION ESTABLISHED
+Protocol version: TLSv1.3
+Ciphersuite: TLS_AES_256_GCM_SHA384
+Peer certificate: [Bingo certificate identity]
+Hash used: SHA256
+Signature type: rsa_pss_rsae_sha256
+Verification: OK
+Peer Temp Key: X25519, 253 bits
+DONE
+
+=================================================
+ TLS cipher suite test (IMAPS)
+=================================================
+Testing cipher strength...
+New, TLSv1.3, Cipher is TLS_AES_256_GCM_SHA384
+Protocol: TLSv1.3
+✅ Using modern TLS protocol
+
+=================================================
+ IMAP protocol greeting test
+=================================================
+* OK [CAPABILITY IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE LITERAL+ AUTH=PLAIN AUTH=LOGIN] [Bingo IMAP greeting]
+a BAD Error in IMAP command received by server.
+✅ IMAP greeting received
+
+=================================================
+ IMAP CAPABILITY detailed test
+=================================================
+* OK [CAPABILITY IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE LITERAL+ AUTH=PLAIN AUTH=LOGIN] [Bingo IMAP greeting]
+✅ IMAP CAPABILITY retrieved successfully
+
+=================================================
+ IMAP LOGIN test (authentication only)
+=================================================
+a001 OK [CAPABILITY IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE SORT SORT=DISPLAY THREAD=REFERENCES THREAD=REFS THREAD=ORDEREDSUBJECT MULTIAPPEND URL-PARTIAL CATENATE UNSELECT CHILDREN NAMESPACE UIDPLUS LIST-EXTENDED I18NLEVEL=1 CONDSTORE QRESYNC ESEARCH ESORT SEARCHRES WITHIN CONTEXT=SEARCH LIST-STATUS BINARY MOVE SNIPPET=FUZZY PREVIEW=FUZZY PREVIEW STATUS=SIZE SAVEDATE LITERAL+ NOTIFY METADATA SPECIAL-USE COMPRESS=DEFLATE QUOTA ACL RIGHTS=texk] Logged in
+* LIST (\HasNoChildren \Archive) "/" [Bingo folder]
+* LIST (\HasNoChildren \Junk) "/" [Bingo folder]
+* LIST (\HasNoChildren \Trash) "/" [Bingo folder]
+* LIST (\HasNoChildren \Drafts) "/" [Bingo folder]
+* LIST (\HasNoChildren \Sent) "/" [Bingo folder]
+* LIST (\HasNoChildren) "/" [Bingo folder]
+a002 OK List completed (0.003 + 0.000 + 0.002 secs).
+✅ IMAP authentication successful
+✅ Found 6 IMAP folders
+
+=================================================
+ IMAP IDLE capability test
+=================================================
+* OK [CAPABILITY IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE LITERAL+ AUTH=PLAIN AUTH=LOGIN] [Bingo IMAP greeting]
+a001 OK [CAPABILITY IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE SORT SORT=DISPLAY THREAD=REFERENCES THREAD=REFS THREAD=ORDEREDSUBJECT MULTIAPPEND URL-PARTIAL CATENATE UNSELECT CHILDREN NAMESPACE UIDPLUS LIST-EXTENDED I18NLEVEL=1 CONDSTORE QRESYNC ESEARCH ESORT SEARCHRES WITHIN CONTEXT=SEARCH LIST-STATUS BINARY MOVE SNIPPET=FUZZY PREVIEW=FUZZY PREVIEW STATUS=SIZE SAVEDATE LITERAL+ NOTIFY METADATA SPECIAL-USE COMPRESS=DEFLATE QUOTA ACL RIGHTS=texk] Logged in
+a002 OK [READ-WRITE] Select completed (0.001 + 0.000 + 0.001 secs).
++ idling
+a003 OK Idle completed (3.004 + 3.004 + 3.003 secs).
+✅ IDLE supported
+
+=================================================
+ IMAP COMPRESS capability test
+=================================================
+COMPRESS not advertised (optional feature)
+
+=================================================
+ ManageSieve port test
+=================================================
+Sieve port 4190: ✅ open
+
+=================================================
+ ManageSieve CAPABILITY test
+=================================================
+bash: line 4: printf: write error: Broken pipe
+bash: line 6: printf: write error: Broken pipe
+[2026-10-25 07:42:48] ⚠️  Could not get Sieve capabilities
+
+=================================================
+ ManageSieve authentication test
+=================================================
+bash: line 4: printf: write error: Broken pipe
+bash: line 6: printf: write error: Broken pipe
+bash: line 8: printf: write error: Broken pipe
+bash: line 10: printf: write error: Broken pipe
+[2026-10-25 07:42:52] ⚠️  Sieve authentication test incomplete
+
+=================================================
+ SMTP STARTTLS capability
+=================================================
+=== Trying [Bingo host]:465...
+=== Connected to [Bingo host]
+[2026-10-25 07:42:57] ❌ SMTP EHLO over STARTTLS failed
+
+=================================================
+ SMTP AUTH advertisement
+=================================================
+[2026-10-25 07:42:57] ❌ AUTH not advertised in EHLO response (clients may not be able to authenticate)
+
+=================================================
+ SMTP banner test (port 25)
+=================================================
+220-[Bingo SMTP greeting]
+
+=================================================
+ SMTP PIPELINING support
+=================================================
+[2026-10-25 07:42:58] ⚠️  PIPELINING not advertised
+
+=================================================
+ SMTP SIZE limit check
+=================================================
+[2026-10-25 07:42:58] ⚠️  SIZE not current advertised
+
+=================================================
+ SMTP 8BITMIME support
+=================================================
+[2026-10-25 07:42:58] ⚠️  8BITMIME not advertised
+
+=================================================
+ SMTP DSN support
+=================================================
+[2026-10-25 07:42:58] ⚠️  DSN not advertised
+
+=================================================
+ SMTP AUTH LOGIN test (authentication only, no mail sent)
+=================================================
+[2026-10-25 07:43:29] ❌ SMTP AUTH failed
+
+=================================================
+ SMTP send test email (to self)
+=================================================
+[2026-10-25 07:43:59] ❌ Failed to send test email via SMTP
+
+=================================================
+ Certificate expiration check
+=================================================
+[2026-10-25 07:52:01] ❌ mail diagnostics timed out after 900s (raise the timeout input)
+----------------------------------------
+=================================================
+ Detailed IMAP Protocol Test
+ Host: [Bingo host]:993
+=================================================
+
+Test 1: IMAP Greeting and CAPABILITY
+=================================================
+Connecting to [Bingo IP]
+* OK [CAPABILITY IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE LITERAL+ AUTH=PLAIN AUTH=LOGIN] [Bingo IMAP greeting]
+* CAPABILITY IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE LITERAL+ AUTH=PLAIN AUTH=LOGIN
+a001 OK Pre-login capabilities listed, post-login capabilities have more.
+* BYE [Bingo IMAP greeting]
+a002 OK Logout completed.
+
+=================================================
+Test 2: IMAP Authentication
+=================================================
+Connecting to [Bingo IP]
+* OK [CAPABILITY IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE LITERAL+ AUTH=PLAIN AUTH=LOGIN] [Bingo IMAP greeting]
+a001 OK [CAPABILITY IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE SORT SORT=DISPLAY THREAD=REFERENCES THREAD=REFS THREAD=ORDEREDSUBJECT MULTIAPPEND URL-PARTIAL CATENATE UNSELECT CHILDREN NAMESPACE UIDPLUS LIST-EXTENDED I18NLEVEL=1 CONDSTORE QRESYNC ESEARCH ESORT SEARCHRES WITHIN CONTEXT=SEARCH LIST-STATUS BINARY MOVE SNIPPET=FUZZY PREVIEW=FUZZY PREVIEW STATUS=SIZE SAVEDATE LITERAL+ NOTIFY METADATA SPECIAL-USE COMPRESS=DEFLATE QUOTA ACL RIGHTS=texk] Logged in
+* BYE [Bingo IMAP greeting]
+a002 OK Logout completed (0.001 + 0.000 secs).
+
+=================================================
+Test 3: IMAP List Folders
+=================================================
+Connecting to [Bingo IP]
+* OK [CAPABILITY IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE LITERAL+ AUTH=PLAIN AUTH=LOGIN] [Bingo IMAP greeting]
+a001 OK [CAPABILITY IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE SORT SORT=DISPLAY THREAD=REFERENCES THREAD=REFS THREAD=ORDEREDSUBJECT MULTIAPPEND URL-PARTIAL CATENATE UNSELECT CHILDREN NAMESPACE UIDPLUS LIST-EXTENDED I18NLEVEL=1 CONDSTORE QRESYNC ESEARCH ESORT SEARCHRES WITHIN CONTEXT=SEARCH LIST-STATUS BINARY MOVE SNIPPET=FUZZY PREVIEW=FUZZY PREVIEW STATUS=SIZE SAVEDATE LITERAL+ NOTIFY METADATA SPECIAL-USE COMPRESS=DEFLATE QUOTA ACL RIGHTS=texk] Logged in
+* LIST (\HasNoChildren \Archive) "/" [Bingo folder]
+* LIST (\HasNoChildren \Junk) "/" [Bingo folder]
+* LIST (\HasNoChildren \Trash) "/" [Bingo folder]
+* LIST (\HasNoChildren \Drafts) "/" [Bingo folder]
+* LIST (\HasNoChildren \Sent) "/" [Bingo folder]
+* LIST (\HasNoChildren) "/" [Bingo folder]
+a002 OK List completed (0.001 + 0.000 secs).
+* BYE [Bingo IMAP greeting]
+a003 OK Logout completed (0.001 + 0.000 secs).
+
+=================================================
+Test 4: IMAP SELECT and IDLE
+=================================================
+Connecting to [Bingo IP]
+* OK [CAPABILITY IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE LITERAL+ AUTH=PLAIN AUTH=LOGIN] [Bingo IMAP greeting]
+a001 OK [CAPABILITY IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE SORT SORT=DISPLAY THREAD=REFERENCES THREAD=REFS THREAD=ORDEREDSUBJECT MULTIAPPEND URL-PARTIAL CATENATE UNSELECT CHILDREN NAMESPACE UIDPLUS LIST-EXTENDED I18NLEVEL=1 CONDSTORE QRESYNC ESEARCH ESORT SEARCHRES WITHIN CONTEXT=SEARCH LIST-STATUS BINARY MOVE SNIPPET=FUZZY PREVIEW=FUZZY PREVIEW STATUS=SIZE SAVEDATE LITERAL+ NOTIFY METADATA SPECIAL-USE COMPRESS=DEFLATE QUOTA ACL RIGHTS=texk] Logged in
+* FLAGS (\Answered \Flagged \Deleted \Seen \Draft)
+* OK [Bingo IMAP greeting]
+* 1 EXISTS
+* 0 RECENT
+* OK [Bingo IMAP greeting]
+* OK [Bingo IMAP greeting]
+* OK [Bingo IMAP greeting]
+* OK [Bingo IMAP greeting]
+a002 OK [READ-WRITE] Select completed (0.001 + 0.000 secs).
++ idling
+a003 OK Idle completed (4.004 + 4.004 + 4.003 secs).
+* BYE [Bingo IMAP greeting]
+a004 OK Logout completed (0.001 + 0.000 secs).
+
+ℹ️  Interactive TLS test skipped (non-interactive mode)
+
+=================================================
+ Test completed
+=================================================
+
+#################################################
+# OctoMailTest summary
+#################################################
+# Mail diagnostics:  TIMED OUT after 900s
+# IMAP diagnostics:  PASSED (exit 0)
+# Critical failures: 6
+# Warnings:          7
+# Finished:          2026-10-25T07:52:42Z (duration 15m 41s)
+# Result:            FAILED
+#################################################
+```
+
+</details>

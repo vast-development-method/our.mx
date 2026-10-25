@@ -2,10 +2,18 @@
   "schema_version": 1,
   "alias": "Bingo",
   "private": true,
-  "total_runs": 1,
+  "total_runs": 2,
   "passed_runs": 0,
-  "failed_runs": 1,
+  "failed_runs": 2,
   "runs": [
+    {
+      "number": 2,
+      "timestamp": "2026-10-25T07:52:43Z",
+      "status": "failed",
+      "exit_code": 124,
+      "failures": 6,
+      "warnings": 7
+    },
     {
       "number": 1,
       "timestamp": "2026-10-24T17:22:32Z",
