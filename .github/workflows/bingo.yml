@@ -23,13 +23,12 @@ jobs:
       - name: Check Bingo secrets
         shell: bash
         env:
-          BINGO_DOMAIN: ${{ secrets.BINGO_DOMAIN }}
           BINGO_HOST: ${{ secrets.BINGO_HOST }}
           BINGO_EMAIL: ${{ secrets.BINGO_EMAIL }}
           BINGO_PASS: ${{ secrets.BINGO_PASS }}
         run: |
           missing=0
-          for secret in BINGO_DOMAIN BINGO_HOST BINGO_EMAIL BINGO_PASS; do
+          for secret in BINGO_HOST BINGO_EMAIL BINGO_PASS; do
             if [[ -z "${!secret}" ]]; then
               echo "::error title=Bingo configuration::Required repository secret ${secret} is missing."
               missing=1
@@ -38,16 +37,16 @@ jobs:
           exit "$missing"
 
       - name: Test Bingo and record history
-        uses: octoleo/octomailtest@299c48d0f415b522ed1f818aeb1cdbcd24fcb9aa # Secure SMTP transport, private live output and retained history.
+        uses: octoleo/octomailtest@d868d63ce2f583d577a0b6623d2f085982a7cb33 # Automatic port checks, private live output and retained history.
         with:
           domain: ${{ secrets.BINGO_DOMAIN }}
           host: ${{ secrets.BINGO_HOST }}
           email: ${{ secrets.BINGO_EMAIL }}
           pass: ${{ secrets.BINGO_PASS }}
+          smtp-relay-port: ${{ secrets.BINGO_SMTP_RELAY_PORT }}
           imap-port: ${{ secrets.BINGO_IMAP_PORT }}
+          imaps-port: ${{ secrets.BINGO_IMAPS_PORT }}
           smtp-port: ${{ secrets.BINGO_SMTP_PORT }}
-          smtp-tls-mode: ${{ secrets.BINGO_SMTP_TLS_MODE }}
-          smtp-starttls-port: ${{ secrets.BINGO_SMTP_STARTTLS_PORT }}
           smtps-port: ${{ secrets.BINGO_SMTPS_PORT }}
           sieve-port: ${{ secrets.BINGO_SIEVE_PORT }}
           mode: both

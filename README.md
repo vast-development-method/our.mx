@@ -5,7 +5,7 @@
 Daily email-server checks using [OctoMailTest](https://github.com/octoleo/octomailtest).
 Servers are identified publicly by aliases. Bingo keeps the detailed test
 messages and findings while private mode anonymizes domains, hosts, mailbox
-addresses, and other identifying values in logs, summaries, and reports.
+addresses, port numbers, and other identifying values in logs, summaries, and reports.
 
 ## Bingo
 
@@ -24,38 +24,38 @@ from the current files but remain accessible in earlier Git commits.
 ### Repository secrets
 
 Add these under **Settings → Secrets and variables → Actions → New repository
-secret**. Keep the actual values in secrets, including the domain and host.
+secret**. Only host, email, and password are required. The action derives the
+mail domain from the email address and tests its standard ports automatically.
+Keep actual server values in secrets.
 
 | Secret | Value |
 | --- | --- |
-| `BINGO_DOMAIN` | Mail domain used for DNS checks (required) |
 | `BINGO_HOST` | Mail-server hostname (required) |
 | `BINGO_EMAIL` | Mailbox address used for authentication and the send-to-self test (required) |
 | `BINGO_PASS` | Mailbox password (required) |
-| `BINGO_IMAP_PORT` | Optional IMAPS port; defaults to `993` |
-| `BINGO_SMTP_PORT` | SMTP authentication/send port; use the server's SMTPS port for implicit TLS. If unset, defaults to `587` with STARTTLS |
-| `BINGO_SMTP_TLS_MODE` | Optional `auto`, `implicit`, or `starttls`; `auto` selects implicit TLS for port `465` and STARTTLS otherwise. Set `implicit` for a custom SMTPS port |
-| `BINGO_SMTP_STARTTLS_PORT` | Optional separate STARTTLS check port; defaults to the submission port in STARTTLS mode, otherwise `587` |
-| `BINGO_SMTPS_PORT` | Optional separate SMTPS check port; defaults to the submission port in implicit TLS mode, otherwise `465` |
-| `BINGO_SIEVE_PORT` | Optional ManageSieve port; defaults to `4190` |
+| `BINGO_DOMAIN` | Optional mail-domain override for DNS checks |
+| `BINGO_SMTP_RELAY_PORT` | Optional SMTP relay-port override |
+| `BINGO_SMTP_PORT` | Optional SMTP submission-port override |
+| `BINGO_SMTPS_PORT` | Optional secure SMTP submission-port override |
+| `BINGO_IMAP_PORT` | Optional IMAP-port override |
+| `BINGO_IMAPS_PORT` | Optional secure IMAP-port override |
+| `BINGO_SIEVE_PORT` | Optional ManageSieve-port override |
 
-Bingo reads `BINGO_SMTP_PORT` for the authentication and send tests. A value of
-`465` uses SMTPS: TLS starts immediately, before SMTP commands. IMAPS likewise
-uses TLS immediately, normally on `993`. The existing separate SMTPS and
-STARTTLS checks both remain enabled; STARTTLS normally uses `587` and upgrades
-the connection to TLS before authentication. There is no plaintext fallback.
-The extra secrets allow custom ports and an explicit TLS mode; they can be
-left unset for standard ports. Keep all actual server settings in secrets.
+Every tested port is mapped from an optional secret. Set these to the ports
+your server uses, or leave them unset to use OctoMailTest's standard defaults.
+The action detects the connection mode and reports each endpoint's features
+and outcomes. It tests both SMTP alternatives and both IMAP alternatives.
+The secure SMTP and IMAP endpoints must pass. Unavailable normal alternatives
+produce warnings. Credentials are sent only after TLS is established.
+Private logs identify the protocol and test without exposing the port number.
 
 Once the workflow is merged and the secrets are set, open **Actions → Bingo →
 Run workflow**, select **main**, and start the first run. Other branches are
 skipped. Missing required secrets fail the configuration check before any
 diagnostics run or history is recorded.
 
-The workflow pins the action to a fixed commit. It runs both diagnostic scripts,
-keeps the full set of checks and existing pass/fail rules, and selects the TLS
-connection mode appropriate to the configured port. Private mode is enabled
-and quiet mode is disabled. Failure notifications
+The workflow pins the action to a fixed commit and runs both diagnostic scripts.
+Private mode is enabled and quiet mode is disabled. Failure notifications
 follow your GitHub Actions notification settings.
 
 ### History and additional servers
