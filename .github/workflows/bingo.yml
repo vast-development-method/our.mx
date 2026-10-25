@@ -38,7 +38,7 @@ jobs:
           exit "$missing"
 
       - name: Test Bingo and record history
-        uses: octoleo/octomailtest@a263f192343f6d280c0ee9d0cd36a4283923ac09 # Secure SMTP transport, private live output and retained history.
+        uses: octoleo/octomailtest@299c48d0f415b522ed1f818aeb1cdbcd24fcb9aa # Secure SMTP transport, private live output and retained history.
         with:
           domain: ${{ secrets.BINGO_DOMAIN }}
           host: ${{ secrets.BINGO_HOST }}
