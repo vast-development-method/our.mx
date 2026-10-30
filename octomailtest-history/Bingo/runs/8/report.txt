@@ -1,0 +1,412 @@
+#################################################
+# OctoMailTest 1.0.1 - GitHub Action report
+#################################################
+# Started:     2026-10-30T08:41:25Z
+# Mode:        both
+# Domain:      [Bingo related host]
+# Host:        [Bingo host]
+# Mailbox:     [Bingo email]
+# IMAP port:   [Bingo port] (default)
+# IMAPS port:  [Bingo port] (default)
+# SMTP relay port:      [Bingo port] (default)
+# SMTP submission port: [Bingo port] (default)
+# SMTPS port:           [Bingo port] (default)
+# Sieve port:  [Bingo port] (default)
+# Config file: (none)
+# Runner:      Linux X64 (Bingo runner)
+# Workflow:    vast-development-method/[Bingo related host] run 8 (id 41028106119, attempt 1)
+# Run URL:     https://github.com/vast-development-method/[Bingo related host]/actions/runs/41028106119
+#################################################
+
+=================================================
+ Mail Diagnostics for [Bingo related host]
+=================================================
+
+🔎 MX records
+0 [Bingo host]
+
+🔎 SPF record
+"v=spf1 ip4:[Bingo IP] a mx include:[Bingo host] include:[Bingo related host] include:[Bingo related host] include:[Bingo related host] include:[Bingo related host] include:[Bingo related host] -all"
+
+🔎 DMARC record
+"v=DMARC1; p=none; rua=mailto:[Bingo related email]"
+
+🔎 DKIM selectors (common)
+Selector: dkim
+"v=DKIM1;k=rsa;t=s;s=email;p=[Bingo redacted]
+Selector: default
+Selector: mail
+
+🔎 BIMI record (optional)
+
+🔎 MTA-STS policy (optional)
+
+🔎 TLS-RPT record (optional)
+
+=================================================
+ SMTP relay port reachability ([Bingo host])
+=================================================
+Port [Bingo port]: ✅ open
+
+========================================
+ Mail Connectivity Diagnostic
+ Host: [Bingo host]
+ User: [Bingo email]
+========================================
+
+=================================================
+ DNS resolution (A record) for host
+=================================================
+[Bingo IP]
+
+=================================================
+ Reverse DNS check
+=================================================
+✅ PTR record found: [Bingo host]
+✅ PTR record matches hostname
+
+=================================================
+ Blacklist check (common RBLs)
+=================================================
+✅ NOT listed on zen.spamhaus.org
+✅ NOT listed on bl.spamcop.net
+✅ NOT listed on b.barracudacentral.org
+✅ NOT listed on dnsbl.sorbs.net
+
+=================================================
+ IMAP alternative — IMAP port [Bingo port]
+=================================================
+[2026-10-30 08:41:33] ⚠️  IMAP alternative — IMAP port [Bingo port]: Port [Bingo port] appears blocked/unreachable
+[2026-10-30 08:41:33] ⚠️  IMAP alternative — IMAP port [Bingo port]: 1 critical endpoint check(s) failed
+=================================================
+ IMAPS required — IMAP port [Bingo port]
+=================================================
+Port [Bingo port]: ✅ open
+IMAPS required — imap port [Bingo port]: probing implicit TLS (no authentication)
+IMAPS required — imap port [Bingo port]: TLS transport detected: implicit
+=================================================
+ TLS test (IMAP over detected TLS)
+=================================================
+Connecting to [Bingo IP]
+CONNECTION ESTABLISHED
+Protocol version: TLSv1.3
+Ciphersuite: TLS_AES_256_GCM_SHA384
+Peer certificate: [Bingo certificate identity]
+Hash used: SHA256
+Signature type: rsa_pss_rsae_sha256
+Verification: OK
+Peer Temp Key: X25519, 253 bits
+DONE
+
+=================================================
+ TLS cipher suite test (IMAP over detected TLS)
+=================================================
+Testing cipher strength...
+New, TLSv1.3, Cipher is TLS_AES_256_GCM_SHA384
+Protocol: TLSv1.3
+✅ Using modern TLS protocol
+
+=================================================
+ IMAP protocol greeting test
+=================================================
+* OK [CAPABILITY IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE LITERAL+ AUTH=PLAIN AUTH=LOGIN] [Bingo IMAP greeting]
+a BAD Error in IMAP command received by server.
+✅ IMAP greeting received
+
+=================================================
+ IMAP CAPABILITY detailed test
+=================================================
+* OK [CAPABILITY IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE LITERAL+ AUTH=PLAIN AUTH=LOGIN] [Bingo IMAP greeting]
+✅ IMAP CAPABILITY retrieved successfully
+
+=================================================
+ IMAP LOGIN test (authentication only)
+=================================================
+a001 OK [CAPABILITY IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE SORT SORT=DISPLAY THREAD=REFERENCES THREAD=REFS THREAD=ORDEREDSUBJECT MULTIAPPEND URL-PARTIAL CATENATE UNSELECT CHILDREN NAMESPACE UIDPLUS LIST-EXTENDED I18NLEVEL=1 CONDSTORE QRESYNC ESEARCH ESORT SEARCHRES WITHIN CONTEXT=SEARCH LIST-STATUS BINARY MOVE SNIPPET=FUZZY PREVIEW=FUZZY PREVIEW STATUS=SIZE SAVEDATE LITERAL+ NOTIFY METADATA SPECIAL-USE COMPRESS=DEFLATE QUOTA ACL RIGHTS=texk] Logged in
+* LIST (\HasNoChildren \Archive) "/" [Bingo folder]
+* LIST (\HasNoChildren \Junk) "/" [Bingo folder]
+* LIST (\HasNoChildren \Trash) "/" [Bingo folder]
+* LIST (\HasNoChildren \Drafts) "/" [Bingo folder]
+* LIST (\HasNoChildren \Sent) "/" [Bingo folder]
+* LIST (\HasNoChildren) "/" [Bingo folder]
+a002 OK List completed (0.002 + 0.000 + 0.001 secs).
+✅ IMAP authentication successful
+✅ Found 6 IMAP folders
+
+=================================================
+ IMAP IDLE capability test
+=================================================
+* OK [CAPABILITY IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE LITERAL+ AUTH=PLAIN AUTH=LOGIN] [Bingo IMAP greeting]
+a001 OK [CAPABILITY IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE SORT SORT=DISPLAY THREAD=REFERENCES THREAD=REFS THREAD=ORDEREDSUBJECT MULTIAPPEND URL-PARTIAL CATENATE UNSELECT CHILDREN NAMESPACE UIDPLUS LIST-EXTENDED I18NLEVEL=1 CONDSTORE QRESYNC ESEARCH ESORT SEARCHRES WITHIN CONTEXT=SEARCH LIST-STATUS BINARY MOVE SNIPPET=FUZZY PREVIEW=FUZZY PREVIEW STATUS=SIZE SAVEDATE LITERAL+ NOTIFY METADATA SPECIAL-USE COMPRESS=DEFLATE QUOTA ACL RIGHTS=texk] Logged in
+a002 OK [READ-WRITE] Select completed (0.001 + 0.000 secs).
++ idling
+a003 OK Idle completed (3.003 + 3.003 + 3.002 secs).
+✅ IDLE supported
+
+=================================================
+ IMAP COMPRESS capability test
+=================================================
+COMPRESS not advertised (optional feature)
+
+✅ IMAPS required — IMAP port [Bingo port]: all critical checks passed
+✅ IMAP: secure endpoint passed all critical checks
+
+=================================================
+ ManageSieve port test
+=================================================
+Sieve port [Bingo port]: ✅ open
+sieve port [Bingo port]: probing starttls TLS (no authentication)
+sieve port [Bingo port]: TLS transport detected: starttls
+
+=================================================
+ ManageSieve CAPABILITY test
+=================================================
+"SIEVE" "fileinto reject envelope encoded-character vacation subaddress comparator-i;ascii-numeric relational regex imap4flags copy include variables body enotify environment mailbox date index ihave duplicate mime foreverypart extracttext vacation-seconds editheader imapflags notify imapsieve [Bingo related host]"
+"SIEVE" "fileinto reject envelope encoded-character vacation subaddress comparator-i;ascii-numeric relational regex imap4flags copy include variables body enotify environment mailbox date index ihave duplicate mime foreverypart extracttext vacation-seconds editheader imapflags notify imapsieve [Bingo related host]"
+
+=================================================
+ ManageSieve authentication test
+=================================================
+OK "TLS negotiation successful."
+OK "Capability completed."
+OK "Logged in."
+OK "Listscripts completed."
+OK "Logout completed."
+
+=================================================
+ SMTP banner test (relay port [Bingo port])
+=================================================
+220-[Bingo SMTP greeting]
+
+=================================================
+ SMTP submission alternative — SMTP port [Bingo port]
+=================================================
+Port [Bingo port]: ✅ open
+SMTP submission alternative — smtp port [Bingo port]: probing starttls TLS (no authentication)
+SMTP submission alternative — smtp port [Bingo port]: starttls TLS probe did not establish a connection
+SMTP submission alternative — smtp port [Bingo port]: probing implicit TLS (no authentication)
+SMTP submission alternative — smtp port [Bingo port]: implicit TLS probe did not establish a connection
+[2026-10-30 08:42:25] ⚠️  SMTP submission alternative — SMTP port [Bingo port]: TLS handshake unavailable; authentication and sending were not attempted
+[2026-10-30 08:42:25] ⚠️  SMTP submission alternative — SMTP port [Bingo port]: 1 critical endpoint check(s) failed
+=================================================
+ SMTPS required — SMTP port [Bingo port]
+=================================================
+Port [Bingo port]: ✅ open
+SMTPS required — smtp port [Bingo port]: probing implicit TLS (no authentication)
+SMTPS required — smtp port [Bingo port]: TLS transport detected: implicit
+=================================================
+ SMTP implicit TLS certificate on port [Bingo port]
+=================================================
+subject=[Bingo certificate identity]
+issuer=[Bingo certificate identity]
+notBefore=Sep 22 23:02:17 2026 GMT
+notAfter=Dec 21 23:02:16 2026 GMT
+
+=================================================
+ SMTP implicit TLS capability
+=================================================
+=== Trying [Bingo host]:[Bingo port]...
+=== Connected to [Bingo host]
+=== TLS started with cipher TLSv1.3:TLS_AES_256_GCM_SHA384:256
+=== TLS client certificate not requested and not sent
+=== TLS no client certificate set
+=== TLS peer[0]   subject=[/CN=[Bingo host]]
+===               commonName=[[Bingo host]], subjectAltName=[DNS:[Bingo host]] notAfter=[2026-12-21T23:02:16Z]
+=== TLS peer[1]   subject=[/C=US/O=Let's Encrypt/CN=YR1]
+===               commonName=[YR1], subjectAltName=[] notAfter=[2028-09-02T23:59:59Z]
+=== TLS peer[2]   subject=[/C=US/O=ISRG/CN=Root YR]
+===               commonName=[Root YR], subjectAltName=[] notAfter=[2032-09-02T23:59:59Z]
+=== TLS peer certificate passed CA verification, passed host verification (using host [Bingo host] to verify)
+<~  220 [Bingo SMTP greeting]
+ ~> EHLO test
+<~  [Bingo related host]
+<~  250-PIPELINING
+<~  250-SIZE 104857600
+<~  250-VRFY
+<~  250-ETRN
+<~  250-AUTH PLAIN LOGIN
+<~  250-AUTH=PLAIN LOGIN
+<~  250-ENHANCEDSTATUSCODES
+<~  250-8BITMIME
+<~  250-DSN
+<~  250-SMTPUTF8
+<~  250 CHUNKING
+ ~> QUIT
+<~  221 2.0.0 Bye
+=== Connection closed with remote host.
+✅ SMTP EHLO succeeded over implicit TLS
+
+=================================================
+ SMTP AUTH advertisement
+=================================================
+✅ AUTH advertised
+<~  250-AUTH PLAIN LOGIN
+<~  250-AUTH=PLAIN LOGIN
+
+=================================================
+ SMTP PIPELINING support
+=================================================
+✅ PIPELINING supported
+
+=================================================
+ SMTP SIZE limit check
+=================================================
+<~  250-SIZE 104857600
+✅ Max message size: 0 MB
+
+=================================================
+ SMTP [Bingo port]BITMIME support
+=================================================
+✅ 8BITMIME supported
+
+=================================================
+ SMTP DSN support
+=================================================
+✅ DSN supported
+
+=================================================
+ SMTP AUTH LOGIN test (authentication only, no mail sent)
+=================================================
+✅ SMTP AUTH succeeded
+
+=================================================
+ SMTP send test email (to self)
+=================================================
+✅ Test email sent successfully
+
+=================================================
+ Certificate expiration check
+=================================================
+Certificate expires: Dec 21 23:02:16 2026 GMT
+Days until expiration: 52
+[2026-10-30 08:42:43] ⚠️  Certificate expires in less than 60 days
+
+=================================================
+ Certificate hostname verification
+=================================================
+Certificate SANs:                 DNS:[Bingo host]
+✅ Certificate matches hostname
+
+=================================================
+ TLS 1.0 capability test
+=================================================
+TLS 1.0 not supported
+
+=================================================
+ TLS 1.1 capability test
+=================================================
+TLS 1.1 not supported
+
+=================================================
+ TLS acceptance test (TLS 1.2+)
+=================================================
+✅ OK (Modern TLS accepted)
+
+=================================================
+ TLS 1.3 support test
+=================================================
+✅ TLS 1.3 supported (optimal)
+
+✅ SMTPS required — SMTP port [Bingo port]: all critical checks passed
+✅ SMTP: secure endpoint passed all critical checks
+
+=================================================
+ Summary
+=================================================
+✅ All critical checks passed
+========================================
+ Diagnostic completed successfully
+========================================
+----------------------------------------
+=================================================
+ Detailed IMAP Protocol Test
+ IMAP alternative port [Bingo port]
+ Host: [Bingo host]:[Bingo port]
+=================================================
+Detecting TLS connection mode for IMAP alternative port [Bingo port]
+⚠️  IMAP alternative port [Bingo port]: unavailable; it may be closed or unable to establish TLS. Protocol and authentication tests could not run.
+=================================================
+ Detailed IMAP Protocol Test
+ IMAPS required port [Bingo port]
+ Host: [Bingo host]:[Bingo port]
+=================================================
+Detecting TLS connection mode for IMAPS required port [Bingo port]
+✅ IMAPS required port [Bingo port]: implicit TLS connection established
+
+Test 1: IMAP Greeting and CAPABILITY
+=================================================
+Connecting to [Bingo IP]
+* OK [CAPABILITY IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE LITERAL+ AUTH=PLAIN AUTH=LOGIN] [Bingo IMAP greeting]
+* CAPABILITY IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE LITERAL+ AUTH=PLAIN AUTH=LOGIN
+a001 OK Pre-login capabilities listed, post-login capabilities have more.
+* BYE [Bingo IMAP greeting]
+a002 OK Logout completed.
+✅ IMAP CAPABILITY
+
+=================================================
+Test 2: IMAP Authentication
+=================================================
+Connecting to [Bingo IP]
+* OK [CAPABILITY IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE LITERAL+ AUTH=PLAIN AUTH=LOGIN] [Bingo IMAP greeting]
+a001 OK [CAPABILITY IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE SORT SORT=DISPLAY THREAD=REFERENCES THREAD=REFS THREAD=ORDEREDSUBJECT MULTIAPPEND URL-PARTIAL CATENATE UNSELECT CHILDREN NAMESPACE UIDPLUS LIST-EXTENDED I18NLEVEL=1 CONDSTORE QRESYNC ESEARCH ESORT SEARCHRES WITHIN CONTEXT=SEARCH LIST-STATUS BINARY MOVE SNIPPET=FUZZY PREVIEW=FUZZY PREVIEW STATUS=SIZE SAVEDATE LITERAL+ NOTIFY METADATA SPECIAL-USE COMPRESS=DEFLATE QUOTA ACL RIGHTS=texk] Logged in
+* BYE [Bingo IMAP greeting]
+a002 OK Logout completed (0.001 + 0.000 secs).
+✅ IMAP authentication
+
+=================================================
+Test 3: IMAP List Folders
+=================================================
+Connecting to [Bingo IP]
+* OK [CAPABILITY IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE LITERAL+ AUTH=PLAIN AUTH=LOGIN] [Bingo IMAP greeting]
+a001 OK [CAPABILITY IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE SORT SORT=DISPLAY THREAD=REFERENCES THREAD=REFS THREAD=ORDEREDSUBJECT MULTIAPPEND URL-PARTIAL CATENATE UNSELECT CHILDREN NAMESPACE UIDPLUS LIST-EXTENDED I18NLEVEL=1 CONDSTORE QRESYNC ESEARCH ESORT SEARCHRES WITHIN CONTEXT=SEARCH LIST-STATUS BINARY MOVE SNIPPET=FUZZY PREVIEW=FUZZY PREVIEW STATUS=SIZE SAVEDATE LITERAL+ NOTIFY METADATA SPECIAL-USE COMPRESS=DEFLATE QUOTA ACL RIGHTS=texk] Logged in
+* LIST (\HasNoChildren \Archive) "/" [Bingo folder]
+* LIST (\HasNoChildren \Junk) "/" [Bingo folder]
+* LIST (\HasNoChildren \Trash) "/" [Bingo folder]
+* LIST (\HasNoChildren \Drafts) "/" [Bingo folder]
+* LIST (\HasNoChildren \Sent) "/" [Bingo folder]
+* LIST (\HasNoChildren) "/" [Bingo folder]
+a002 OK List completed (0.001 + 0.000 secs).
+* BYE [Bingo IMAP greeting]
+a003 OK Logout completed (0.001 + 0.000 secs).
+✅ IMAP folder listing
+
+=================================================
+Test 4: IMAP SELECT and IDLE
+=================================================
+Connecting to [Bingo IP]
+* OK [CAPABILITY IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE LITERAL+ AUTH=PLAIN AUTH=LOGIN] [Bingo IMAP greeting]
+a001 OK [CAPABILITY IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE SORT SORT=DISPLAY THREAD=REFERENCES THREAD=REFS THREAD=ORDEREDSUBJECT MULTIAPPEND URL-PARTIAL CATENATE UNSELECT CHILDREN NAMESPACE UIDPLUS LIST-EXTENDED I18NLEVEL=1 CONDSTORE QRESYNC ESEARCH ESORT SEARCHRES WITHIN CONTEXT=SEARCH LIST-STATUS BINARY MOVE SNIPPET=FUZZY PREVIEW=FUZZY PREVIEW STATUS=SIZE SAVEDATE LITERAL+ NOTIFY METADATA SPECIAL-USE COMPRESS=DEFLATE QUOTA ACL RIGHTS=texk] Logged in
+* FLAGS (\Answered \Flagged \Deleted \Seen \Draft)
+* OK [Bingo IMAP greeting]
+* 12 EXISTS
+* 1 RECENT
+* OK [Bingo IMAP greeting]
+* OK [Bingo IMAP greeting]
+* OK [Bingo IMAP greeting]
+* OK [Bingo IMAP greeting]
+a002 OK [READ-WRITE] Select completed (0.003 + 0.000 + 0.002 secs).
++ idling
+a003 OK Idle completed (4.003 + 4.002 + 4.002 secs).
+* BYE [Bingo IMAP greeting]
+a004 OK Logout completed (0.001 + 0.000 secs).
+✅ IMAP SELECT INBOX
+✅ IMAP IDLE completed
+
+ℹ️  Interactive TLS test skipped (non-interactive mode)
+✅ IMAPS required port [Bingo port]: protocol and authentication checks passed
+
+=================================================
+⚠️  The IMAP alternative failed; the required secure endpoint passed.
+ IMAP test completed successfully
+=================================================
+
+#################################################
+# OctoMailTest summary
+#################################################
+# Mail diagnostics:  PASSED (exit 0)
+# IMAP diagnostics:  PASSED (exit 0)
+# Critical failures: 0
+# Warnings:          7
+# Finished:          2026-10-30T08:43:39Z (duration 2m 14s)
+# Result:            PASSED
+#################################################
