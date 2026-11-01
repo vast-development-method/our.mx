@@ -1,11 +1,12 @@
 # Bingo test history
 
-Total runs: **9** · Passed: **7** · Failed: **2**
+Total runs: **10** · Passed: **8** · Failed: **2**
 
 Showing the most recent 10 runs. Counters include all recorded runs. Timestamps are UTC.
 
 | Run | Timestamp (UTC) | Result | Failures | Warnings | Findings |
 |---|---|---|---|---|---|
+| 10 | 2026-11-01T09:20:32Z | PASSED | 0 | 6 | [Summary](runs/10/summary.md) · [Text](runs/10/report.txt) · [JSON](runs/10/report.json) |
 | 9 | 2026-10-31T08:30:05Z | PASSED | 0 | 7 | [Summary](runs/9/summary.md) · [Text](runs/9/report.txt) · [JSON](runs/9/report.json) |
 | 8 | 2026-10-30T08:43:40Z | PASSED | 0 | 7 | [Summary](runs/8/summary.md) · [Text](runs/8/report.txt) · [JSON](runs/8/report.json) |
 | 7 | 2026-10-29T08:34:36Z | PASSED | 0 | 6 | [Summary](runs/7/summary.md) · [Text](runs/7/report.txt) · [JSON](runs/7/report.json) |
