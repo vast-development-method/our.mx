@@ -12,8 +12,8 @@
 | SMTPS port | [Bingo port] (default) |
 | Sieve port | [Bingo port] (default) |
 | Mode | `both` |
-| Started | 2026-11-10T09:54:13Z |
-| Duration | 2m 37s |
+| Started | 2026-11-20T10:04:02Z |
+| Duration | 2m 40s |
 | Version | OctoMailTest 1.0.1 |
 
 | Diagnostic | Result |
@@ -21,10 +21,11 @@
 | Mail (`src/mail`) | :white_check_mark: passed |
 | IMAP (`src/imap`) | :white_check_mark: passed |
 
-**Critical failures:** 0 / **Warnings:** 6
+**Critical failures:** 0 / **Warnings:** 7
 
 ### :warning: Warnings
 
+- zen.spamhaus.org: lookup unavailable; listing status unknown (provider response 127.255.255.254)
 - IMAP alternative — IMAP port [Bingo port]: Port [Bingo port] appears blocked/unreachable
 - IMAP alternative — IMAP port [Bingo port]: 1 critical endpoint check(s) failed
 - Certificate expires in less than 60 days
@@ -39,7 +40,7 @@
 #################################################
 # OctoMailTest 1.0.1 - GitHub Action report
 #################################################
-# Started:     2026-11-10T09:54:13Z
+# Started:     2026-11-20T10:04:02Z
 # Mode:        both
 # Domain:      [Bingo related host]
 # Host:        [Bingo host]
@@ -52,8 +53,8 @@
 # Sieve port:  [Bingo port] (default)
 # Config file: (none)
 # Runner:      Linux X64 (Bingo runner)
-# Workflow:    vast-development-method/[Bingo related host] run 19 (id 42794550172, attempt 1)
-# Run URL:     https://github.com/vast-development-method/[Bingo related host]/actions/runs/42794550172
+# Workflow:    vast-development-method/[Bingo related host] run 29 (id 44715965796, attempt 1)
+# Run URL:     https://github.com/vast-development-method/[Bingo related host]/actions/runs/44715965796
 #################################################
 
 =================================================
@@ -106,7 +107,7 @@ Port [Bingo port]: ✅ open
 =================================================
  Blacklist check (common RBLs)
 =================================================
-✅ NOT listed on zen.spamhaus.org
+[2026-11-20 10:04:04] ⚠️  zen.spamhaus.org: lookup unavailable; listing status unknown (provider response 127.255.255.254)
 ✅ NOT listed on bl.spamcop.net
 ✅ NOT listed on b.barracudacentral.org
 ✅ NOT listed on dnsbl.sorbs.net
@@ -114,8 +115,8 @@ Port [Bingo port]: ✅ open
 =================================================
  IMAP alternative — IMAP port [Bingo port]
 =================================================
-[2026-11-10 09:54:20] ⚠️  IMAP alternative — IMAP port [Bingo port]: Port [Bingo port] appears blocked/unreachable
-[2026-11-10 09:54:20] ⚠️  IMAP alternative — IMAP port [Bingo port]: 1 critical endpoint check(s) failed
+[2026-11-20 10:04:09] ⚠️  IMAP alternative — IMAP port [Bingo port]: Port [Bingo port] appears blocked/unreachable
+[2026-11-20 10:04:09] ⚠️  IMAP alternative — IMAP port [Bingo port]: 1 critical endpoint check(s) failed
 =================================================
  IMAPS required — IMAP port [Bingo port]
 =================================================
@@ -167,7 +168,7 @@ a001 OK [CAPABILITY IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE SORT SORT=D
 * LIST (\HasNoChildren \Drafts) "/" [Bingo folder]
 * LIST (\HasNoChildren \Sent) "/" [Bingo folder]
 * LIST (\HasNoChildren) "/" [Bingo folder]
-a002 OK List completed (0.001 + 0.000 + 0.001 secs).
+a002 OK List completed (0.003 + 0.000 + 0.002 secs).
 ✅ IMAP authentication successful
 ✅ Found 6 IMAP folders
 
@@ -176,9 +177,9 @@ a002 OK List completed (0.001 + 0.000 + 0.001 secs).
 =================================================
 * OK [CAPABILITY IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE LITERAL+ AUTH=PLAIN AUTH=LOGIN] [Bingo IMAP greeting]
 a001 OK [CAPABILITY IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE SORT SORT=DISPLAY THREAD=REFERENCES THREAD=REFS THREAD=ORDEREDSUBJECT MULTIAPPEND URL-PARTIAL CATENATE UNSELECT CHILDREN NAMESPACE UIDPLUS LIST-EXTENDED I18NLEVEL=1 CONDSTORE QRESYNC ESEARCH ESORT SEARCHRES WITHIN CONTEXT=SEARCH LIST-STATUS BINARY MOVE SNIPPET=FUZZY PREVIEW=FUZZY PREVIEW STATUS=SIZE SAVEDATE LITERAL+ NOTIFY METADATA SPECIAL-USE COMPRESS=DEFLATE QUOTA ACL RIGHTS=texk] Logged in
-a002 OK [READ-WRITE] Select completed (0.001 + 0.000 secs).
+a002 OK [READ-WRITE] Select completed (0.001 + 0.000 + 0.001 secs).
 + idling
-a003 OK Idle completed (3.004 + 3.003 + 3.003 secs).
+a003 OK Idle completed (3.004 + 3.004 + 3.004 secs).
 ✅ IDLE supported
 
 =================================================
@@ -317,8 +318,8 @@ notAfter=Dec 21 23:02:16 2026 GMT
  Certificate expiration check
 =================================================
 Certificate expires: Dec 21 23:02:16 2026 GMT
-Days until expiration: 41
-[2026-11-10 09:55:30] ⚠️  Certificate expires in less than 60 days
+Days until expiration: 31
+[2026-11-20 10:05:21] ⚠️  Certificate expires in less than 60 days
 
 =================================================
  Certificate hostname verification
@@ -437,8 +438,8 @@ notAfter=Dec 21 23:02:16 2026 GMT
  Certificate expiration check
 =================================================
 Certificate expires: Dec 21 23:02:16 2026 GMT
-Days until expiration: 41
-[2026-11-10 09:55:53] ⚠️  Certificate expires in less than 60 days
+Days until expiration: 31
+[2026-11-20 10:05:46] ⚠️  Certificate expires in less than 60 days
 
 =================================================
  Certificate hostname verification
@@ -524,7 +525,7 @@ a001 OK [CAPABILITY IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE SORT SORT=D
 * LIST (\HasNoChildren \Drafts) "/" [Bingo folder]
 * LIST (\HasNoChildren \Sent) "/" [Bingo folder]
 * LIST (\HasNoChildren) "/" [Bingo folder]
-a002 OK List completed (0.001 + 0.000 secs).
+a002 OK List completed (0.003 + 0.000 + 0.002 secs).
 * BYE [Bingo IMAP greeting]
 a003 OK Logout completed (0.001 + 0.000 secs).
 ✅ IMAP folder listing
@@ -537,7 +538,7 @@ Connecting to [Bingo IP]
 a001 OK [CAPABILITY IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE SORT SORT=DISPLAY THREAD=REFERENCES THREAD=REFS THREAD=ORDEREDSUBJECT MULTIAPPEND URL-PARTIAL CATENATE UNSELECT CHILDREN NAMESPACE UIDPLUS LIST-EXTENDED I18NLEVEL=1 CONDSTORE QRESYNC ESEARCH ESORT SEARCHRES WITHIN CONTEXT=SEARCH LIST-STATUS BINARY MOVE SNIPPET=FUZZY PREVIEW=FUZZY PREVIEW STATUS=SIZE SAVEDATE LITERAL+ NOTIFY METADATA SPECIAL-USE COMPRESS=DEFLATE QUOTA ACL RIGHTS=texk] Logged in
 * FLAGS (\Answered \Flagged \Deleted \Seen \Draft)
 * OK [Bingo IMAP greeting]
-* 33 EXISTS
+* 52 EXISTS
 * 2 RECENT
 * OK [Bingo IMAP greeting]
 * OK [Bingo IMAP greeting]
@@ -565,8 +566,8 @@ a004 OK Logout completed (0.001 + 0.000 secs).
 # Mail diagnostics:  PASSED (exit 0)
 # IMAP diagnostics:  PASSED (exit 0)
 # Critical failures: 0
-# Warnings:          6
-# Finished:          2026-11-10T09:56:50Z (duration 2m 37s)
+# Warnings:          7
+# Finished:          2026-11-20T10:06:43Z (duration 2m 40s)
 # Result:            PASSED
 #################################################
 ```
