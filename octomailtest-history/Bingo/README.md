@@ -1,11 +1,12 @@
 # Bingo test history
 
-Total runs: **30** · Passed: **28** · Failed: **2**
+Total runs: **31** · Passed: **28** · Failed: **3**
 
 Showing the most recent 10 runs. Counters include all recorded runs. Timestamps are UTC.
 
 | Run | Timestamp (UTC) | Result | Failures | Warnings | Findings |
 |---|---|---|---|---|---|
+| 31 | 2026-11-22T09:51:35Z | FAILED | 1 | 8 | [Summary](runs/31/summary.md) · [Text](runs/31/report.txt) · [JSON](runs/31/report.json) |
 | 30 | 2026-11-21T09:55:03Z | PASSED | 0 | 7 | [Summary](runs/30/summary.md) · [Text](runs/30/report.txt) · [JSON](runs/30/report.json) |
 | 29 | 2026-11-20T10:06:44Z | PASSED | 0 | 7 | [Summary](runs/29/summary.md) · [Text](runs/29/report.txt) · [JSON](runs/29/report.json) |
 | 28 | 2026-11-19T10:26:13Z | PASSED | 0 | 7 | [Summary](runs/28/summary.md) · [Text](runs/28/report.txt) · [JSON](runs/28/report.json) |
@@ -15,6 +16,5 @@ Showing the most recent 10 runs. Counters include all recorded runs. Timestamps 
 | 24 | 2026-11-15T09:32:01Z | PASSED | 0 | 6 | [Summary](runs/24/summary.md) · [Text](runs/24/report.txt) · [JSON](runs/24/report.json) |
 | 23 | 2026-11-14T09:02:26Z | PASSED | 0 | 6 | [Summary](runs/23/summary.md) · [Text](runs/23/report.txt) · [JSON](runs/23/report.json) |
 | 22 | 2026-11-13T09:36:38Z | PASSED | 0 | 6 | [Summary](runs/22/summary.md) · [Text](runs/22/report.txt) · [JSON](runs/22/report.json) |
-| 21 | 2026-11-12T09:55:49Z | PASSED | 0 | 6 | [Summary](runs/21/summary.md) · [Text](runs/21/report.txt) · [JSON](runs/21/report.json) |
 
 [Machine-readable history](history.json)

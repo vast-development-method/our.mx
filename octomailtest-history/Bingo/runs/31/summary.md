@@ -1,4 +1,4 @@
-## :email: OctoMailTest report: :white_check_mark: PASSED
+## :email: OctoMailTest report: :x: FAILED
 
 | Target | |
 |---|---|
@@ -12,23 +12,29 @@
 | SMTPS port | [Bingo port] (default) |
 | Sieve port | [Bingo port] (default) |
 | Mode | `both` |
-| Started | 2026-11-12T09:53:12Z |
-| Duration | 2m 36s |
+| Started | 2026-11-22T09:48:56Z |
+| Duration | 2m 37s |
 | Version | OctoMailTest 1.0.1 |
 
 | Diagnostic | Result |
 |---|---|
-| Mail (`src/mail`) | :white_check_mark: passed |
+| Mail (`src/mail`) | :x: failed (exit 1) |
 | IMAP (`src/imap`) | :white_check_mark: passed |
 
-**Critical failures:** 0 / **Warnings:** 6
+**Critical failures:** 1 / **Warnings:** 8
+
+### :x: Failures
+
+- SMTP: secure endpoint failed critical checks
 
 ### :warning: Warnings
 
 - IMAP alternative — IMAP port [Bingo port]: Port [Bingo port] appears blocked/unreachable
 - IMAP alternative — IMAP port [Bingo port]: 1 critical endpoint check(s) failed
-- Certificate expires in less than 60 days
-- Certificate expires in less than 60 days
+- SMTP submission alternative — SMTP port [Bingo port]: Certificate expires in less than 30 days
+- SMTP submission alternative — SMTP port [Bingo port]: 1 critical endpoint check(s) failed
+- SMTPS required — SMTP port [Bingo port]: Certificate expires in less than 30 days
+- SMTPS required — SMTP port [Bingo port]: 1 critical endpoint check(s) failed
 - IMAP alternative port [Bingo port]: unavailable; it may be closed or unable to establish TLS. Protocol and authentication tests could not run.
 - The IMAP alternative failed; the required secure endpoint passed.
 
@@ -39,7 +45,7 @@
 #################################################
 # OctoMailTest 1.0.1 - GitHub Action report
 #################################################
-# Started:     2026-11-12T09:53:12Z
+# Started:     2026-11-22T09:48:56Z
 # Mode:        both
 # Domain:      [Bingo related host]
 # Host:        [Bingo host]
@@ -52,8 +58,8 @@
 # Sieve port:  [Bingo port] (default)
 # Config file: (none)
 # Runner:      Linux X64 (Bingo runner)
-# Workflow:    vast-development-method/[Bingo related host] run 21 (id 43195308869, attempt 1)
-# Run URL:     https://github.com/vast-development-method/[Bingo related host]/actions/runs/43195308869
+# Workflow:    vast-development-method/[Bingo related host] run 31 (id 45009335380, attempt 1)
+# Run URL:     https://github.com/vast-development-method/[Bingo related host]/actions/runs/45009335380
 #################################################
 
 =================================================
@@ -114,8 +120,8 @@ Port [Bingo port]: ✅ open
 =================================================
  IMAP alternative — IMAP port [Bingo port]
 =================================================
-[2026-11-12 09:53:19] ⚠️  IMAP alternative — IMAP port [Bingo port]: Port [Bingo port] appears blocked/unreachable
-[2026-11-12 09:53:19] ⚠️  IMAP alternative — IMAP port [Bingo port]: 1 critical endpoint check(s) failed
+[2026-11-22 09:49:03] ⚠️  IMAP alternative — IMAP port [Bingo port]: Port [Bingo port] appears blocked/unreachable
+[2026-11-22 09:49:03] ⚠️  IMAP alternative — IMAP port [Bingo port]: 1 critical endpoint check(s) failed
 =================================================
  IMAPS required — IMAP port [Bingo port]
 =================================================
@@ -317,8 +323,8 @@ notAfter=Dec 21 23:02:16 2026 GMT
  Certificate expiration check
 =================================================
 Certificate expires: Dec 21 23:02:16 2026 GMT
-Days until expiration: 39
-[2026-11-12 09:54:27] ⚠️  Certificate expires in less than 60 days
+Days until expiration: 29
+[2026-11-22 09:50:12] ⚠️  SMTP submission alternative — SMTP port [Bingo port]: Certificate expires in less than 30 days
 
 =================================================
  Certificate hostname verification
@@ -346,7 +352,7 @@ TLS 1.1 not supported
 =================================================
 ✅ TLS 1.3 supported (optimal)
 
-✅ SMTP submission alternative — SMTP port [Bingo port]: all critical checks passed
+[2026-11-22 09:50:20] ⚠️  SMTP submission alternative — SMTP port [Bingo port]: 1 critical endpoint check(s) failed
 =================================================
  SMTPS required — SMTP port [Bingo port]
 =================================================
@@ -437,8 +443,8 @@ notAfter=Dec 21 23:02:16 2026 GMT
  Certificate expiration check
 =================================================
 Certificate expires: Dec 21 23:02:16 2026 GMT
-Days until expiration: 39
-[2026-11-12 09:54:51] ⚠️  Certificate expires in less than 60 days
+Days until expiration: 29
+[2026-11-22 09:50:37] ⚠️  SMTPS required — SMTP port [Bingo port]: Certificate expires in less than 30 days
 
 =================================================
  Certificate hostname verification
@@ -466,15 +472,15 @@ TLS 1.1 not supported
 =================================================
 ✅ TLS 1.3 supported (optimal)
 
-✅ SMTPS required — SMTP port [Bingo port]: all critical checks passed
-✅ SMTP: secure endpoint passed all critical checks
+[2026-11-22 09:50:41] ⚠️  SMTPS required — SMTP port [Bingo port]: 1 critical endpoint check(s) failed
+[2026-11-22 09:50:41] ❌ SMTP: secure endpoint failed critical checks
 
 =================================================
  Summary
 =================================================
-✅ All critical checks passed
+❌ Critical failures: 1
 ========================================
- Diagnostic completed successfully
+ Diagnostic completed with errors
 ========================================
 ----------------------------------------
 =================================================
@@ -524,7 +530,7 @@ a001 OK [CAPABILITY IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE SORT SORT=D
 * LIST (\HasNoChildren \Drafts) "/" [Bingo folder]
 * LIST (\HasNoChildren \Sent) "/" [Bingo folder]
 * LIST (\HasNoChildren) "/" [Bingo folder]
-a002 OK List completed (0.003 + 0.000 + 0.002 secs).
+a002 OK List completed (0.001 + 0.000 secs).
 * BYE [Bingo IMAP greeting]
 a003 OK Logout completed (0.001 + 0.000 secs).
 ✅ IMAP folder listing
@@ -537,15 +543,15 @@ Connecting to [Bingo IP]
 a001 OK [CAPABILITY IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE SORT SORT=DISPLAY THREAD=REFERENCES THREAD=REFS THREAD=ORDEREDSUBJECT MULTIAPPEND URL-PARTIAL CATENATE UNSELECT CHILDREN NAMESPACE UIDPLUS LIST-EXTENDED I18NLEVEL=1 CONDSTORE QRESYNC ESEARCH ESORT SEARCHRES WITHIN CONTEXT=SEARCH LIST-STATUS BINARY MOVE SNIPPET=FUZZY PREVIEW=FUZZY PREVIEW STATUS=SIZE SAVEDATE LITERAL+ NOTIFY METADATA SPECIAL-USE COMPRESS=DEFLATE QUOTA ACL RIGHTS=texk] Logged in
 * FLAGS (\Answered \Flagged \Deleted \Seen \Draft)
 * OK [Bingo IMAP greeting]
-* 37 EXISTS
+* 56 EXISTS
 * 2 RECENT
 * OK [Bingo IMAP greeting]
 * OK [Bingo IMAP greeting]
 * OK [Bingo IMAP greeting]
 * OK [Bingo IMAP greeting]
-a002 OK [READ-WRITE] Select completed (0.001 + 0.000 secs).
+a002 OK [READ-WRITE] Select completed (0.003 + 0.000 + 0.002 secs).
 + idling
-a003 OK Idle completed (4.004 + 4.004 + 4.003 secs).
+a003 OK Idle completed (4.004 + 4.003 + 4.003 secs).
 * BYE [Bingo IMAP greeting]
 a004 OK Logout completed (0.001 + 0.000 secs).
 ✅ IMAP SELECT INBOX
@@ -562,12 +568,12 @@ a004 OK Logout completed (0.001 + 0.000 secs).
 #################################################
 # OctoMailTest summary
 #################################################
-# Mail diagnostics:  PASSED (exit 0)
+# Mail diagnostics:  FAILED (exit 1)
 # IMAP diagnostics:  PASSED (exit 0)
-# Critical failures: 0
-# Warnings:          6
-# Finished:          2026-11-12T09:55:48Z (duration 2m 36s)
-# Result:            PASSED
+# Critical failures: 1
+# Warnings:          8
+# Finished:          2026-11-22T09:51:33Z (duration 2m 37s)
+# Result:            FAILED
 #################################################
 ```
 
