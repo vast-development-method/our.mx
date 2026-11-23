@@ -12,8 +12,8 @@
 | SMTPS port | [Bingo port] (default) |
 | Sieve port | [Bingo port] (default) |
 | Mode | `both` |
-| Started | 2026-11-13T09:34:00Z |
-| Duration | 2m 37s |
+| Started | 2026-11-23T10:49:14Z |
+| Duration | 2m 43s |
 | Version | OctoMailTest 1.0.1 |
 
 | Diagnostic | Result |
@@ -21,14 +21,12 @@
 | Mail (`src/mail`) | :white_check_mark: passed |
 | IMAP (`src/imap`) | :white_check_mark: passed |
 
-**Critical failures:** 0 / **Warnings:** 6
+**Critical failures:** 0 / **Warnings:** 4
 
 ### :warning: Warnings
 
 - IMAP alternative — IMAP port [Bingo port]: Port [Bingo port] appears blocked/unreachable
 - IMAP alternative — IMAP port [Bingo port]: 1 critical endpoint check(s) failed
-- Certificate expires in less than 60 days
-- Certificate expires in less than 60 days
 - IMAP alternative port [Bingo port]: unavailable; it may be closed or unable to establish TLS. Protocol and authentication tests could not run.
 - The IMAP alternative failed; the required secure endpoint passed.
 
@@ -39,7 +37,7 @@
 #################################################
 # OctoMailTest 1.0.1 - GitHub Action report
 #################################################
-# Started:     2026-11-13T09:34:00Z
+# Started:     2026-11-23T10:49:14Z
 # Mode:        both
 # Domain:      [Bingo related host]
 # Host:        [Bingo host]
@@ -52,8 +50,8 @@
 # Sieve port:  [Bingo port] (default)
 # Config file: (none)
 # Runner:      Linux X64 (Bingo runner)
-# Workflow:    vast-development-method/[Bingo related host] run 22 (id 43402336024, attempt 1)
-# Run URL:     https://github.com/vast-development-method/[Bingo related host]/actions/runs/43402336024
+# Workflow:    vast-development-method/[Bingo related host] run 32 (id 45159508387, attempt 1)
+# Run URL:     https://github.com/vast-development-method/[Bingo related host]/actions/runs/45159508387
 #################################################
 
 =================================================
@@ -114,8 +112,8 @@ Port [Bingo port]: ✅ open
 =================================================
  IMAP alternative — IMAP port [Bingo port]
 =================================================
-[2026-11-13 09:34:07] ⚠️  IMAP alternative — IMAP port [Bingo port]: Port [Bingo port] appears blocked/unreachable
-[2026-11-13 09:34:07] ⚠️  IMAP alternative — IMAP port [Bingo port]: 1 critical endpoint check(s) failed
+[2026-11-23 10:49:21] ⚠️  IMAP alternative — IMAP port [Bingo port]: Port [Bingo port] appears blocked/unreachable
+[2026-11-23 10:49:21] ⚠️  IMAP alternative — IMAP port [Bingo port]: 1 critical endpoint check(s) failed
 =================================================
  IMAPS required — IMAP port [Bingo port]
 =================================================
@@ -167,7 +165,7 @@ a001 OK [CAPABILITY IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE SORT SORT=D
 * LIST (\HasNoChildren \Drafts) "/" [Bingo folder]
 * LIST (\HasNoChildren \Sent) "/" [Bingo folder]
 * LIST (\HasNoChildren) "/" [Bingo folder]
-a002 OK List completed (0.002 + 0.000 + 0.001 secs).
+a002 OK List completed (0.003 + 0.000 + 0.002 secs).
 ✅ IMAP authentication successful
 ✅ Found 6 IMAP folders
 
@@ -178,7 +176,7 @@ a002 OK List completed (0.002 + 0.000 + 0.001 secs).
 a001 OK [CAPABILITY IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE SORT SORT=DISPLAY THREAD=REFERENCES THREAD=REFS THREAD=ORDEREDSUBJECT MULTIAPPEND URL-PARTIAL CATENATE UNSELECT CHILDREN NAMESPACE UIDPLUS LIST-EXTENDED I18NLEVEL=1 CONDSTORE QRESYNC ESEARCH ESORT SEARCHRES WITHIN CONTEXT=SEARCH LIST-STATUS BINARY MOVE SNIPPET=FUZZY PREVIEW=FUZZY PREVIEW STATUS=SIZE SAVEDATE LITERAL+ NOTIFY METADATA SPECIAL-USE COMPRESS=DEFLATE QUOTA ACL RIGHTS=texk] Logged in
 a002 OK [READ-WRITE] Select completed (0.001 + 0.000 + 0.001 secs).
 + idling
-a003 OK Idle completed (3.004 + 3.003 + 3.003 secs).
+a003 OK Idle completed (3.004 + 3.004 + 3.003 secs).
 ✅ IDLE supported
 
 =================================================
@@ -227,8 +225,8 @@ SMTP submission alternative — smtp port [Bingo port]: TLS transport detected: 
 =================================================
 subject=[Bingo certificate identity]
 issuer=[Bingo certificate identity]
-notBefore=Sep 22 23:02:17 2026 GMT
-notAfter=Dec 21 23:02:16 2026 GMT
+notBefore=Nov 22 23:02:14 2026 GMT
+notAfter=Feb 20 23:02:13 2027 GMT
 
 =================================================
  SMTP STARTTLS capability
@@ -254,7 +252,7 @@ notAfter=Dec 21 23:02:16 2026 GMT
 === TLS client certificate not requested and not sent
 === TLS no client certificate set
 === TLS peer[0]   subject=[/CN=[Bingo host]]
-===               commonName=[[Bingo host]], subjectAltName=[DNS:[Bingo host]] notAfter=[2026-12-21T23:02:16Z]
+===               commonName=[[Bingo host]], subjectAltName=[DNS:[Bingo host]] notAfter=[2027-02-20T23:02:13Z]
 === TLS peer[1]   subject=[/C=US/O=Let's Encrypt/CN=YR1]
 ===               commonName=[YR1], subjectAltName=[] notAfter=[2028-09-02T23:59:59Z]
 === TLS peer[2]   subject=[/C=US/O=ISRG/CN=Root YR]
@@ -316,9 +314,9 @@ notAfter=Dec 21 23:02:16 2026 GMT
 =================================================
  Certificate expiration check
 =================================================
-Certificate expires: Dec 21 23:02:16 2026 GMT
-Days until expiration: 38
-[2026-11-13 09:35:16] ⚠️  Certificate expires in less than 60 days
+Certificate expires: Feb 20 23:02:13 2027 GMT
+Days until expiration: 89
+✅ Certificate expiration OK
 
 =================================================
  Certificate hostname verification
@@ -358,8 +356,8 @@ SMTPS required — smtp port [Bingo port]: TLS transport detected: implicit
 =================================================
 subject=[Bingo certificate identity]
 issuer=[Bingo certificate identity]
-notBefore=Sep 22 23:02:17 2026 GMT
-notAfter=Dec 21 23:02:16 2026 GMT
+notBefore=Nov 22 23:02:14 2026 GMT
+notAfter=Feb 20 23:02:13 2027 GMT
 
 =================================================
  SMTP implicit TLS capability
@@ -370,7 +368,7 @@ notAfter=Dec 21 23:02:16 2026 GMT
 === TLS client certificate not requested and not sent
 === TLS no client certificate set
 === TLS peer[0]   subject=[/CN=[Bingo host]]
-===               commonName=[[Bingo host]], subjectAltName=[DNS:[Bingo host]] notAfter=[2026-12-21T23:02:16Z]
+===               commonName=[[Bingo host]], subjectAltName=[DNS:[Bingo host]] notAfter=[2027-02-20T23:02:13Z]
 === TLS peer[1]   subject=[/C=US/O=Let's Encrypt/CN=YR1]
 ===               commonName=[YR1], subjectAltName=[] notAfter=[2028-09-02T23:59:59Z]
 === TLS peer[2]   subject=[/C=US/O=ISRG/CN=Root YR]
@@ -436,9 +434,9 @@ notAfter=Dec 21 23:02:16 2026 GMT
 =================================================
  Certificate expiration check
 =================================================
-Certificate expires: Dec 21 23:02:16 2026 GMT
-Days until expiration: 38
-[2026-11-13 09:35:40] ⚠️  Certificate expires in less than 60 days
+Certificate expires: Feb 20 23:02:13 2027 GMT
+Days until expiration: 89
+✅ Certificate expiration OK
 
 =================================================
  Certificate hostname verification
@@ -537,15 +535,15 @@ Connecting to [Bingo IP]
 a001 OK [CAPABILITY IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE SORT SORT=DISPLAY THREAD=REFERENCES THREAD=REFS THREAD=ORDEREDSUBJECT MULTIAPPEND URL-PARTIAL CATENATE UNSELECT CHILDREN NAMESPACE UIDPLUS LIST-EXTENDED I18NLEVEL=1 CONDSTORE QRESYNC ESEARCH ESORT SEARCHRES WITHIN CONTEXT=SEARCH LIST-STATUS BINARY MOVE SNIPPET=FUZZY PREVIEW=FUZZY PREVIEW STATUS=SIZE SAVEDATE LITERAL+ NOTIFY METADATA SPECIAL-USE COMPRESS=DEFLATE QUOTA ACL RIGHTS=texk] Logged in
 * FLAGS (\Answered \Flagged \Deleted \Seen \Draft)
 * OK [Bingo IMAP greeting]
-* 39 EXISTS
+* 58 EXISTS
 * 2 RECENT
 * OK [Bingo IMAP greeting]
 * OK [Bingo IMAP greeting]
 * OK [Bingo IMAP greeting]
 * OK [Bingo IMAP greeting]
-a002 OK [READ-WRITE] Select completed (0.003 + 0.000 + 0.002 secs).
+a002 OK [READ-WRITE] Select completed (0.002 + 0.000 + 0.001 secs).
 + idling
-a003 OK Idle completed (4.004 + 4.003 + 4.003 secs).
+a003 OK Idle completed (4.004 + 4.004 + 4.003 secs).
 * BYE [Bingo IMAP greeting]
 a004 OK Logout completed (0.001 + 0.000 secs).
 ✅ IMAP SELECT INBOX
@@ -565,8 +563,8 @@ a004 OK Logout completed (0.001 + 0.000 secs).
 # Mail diagnostics:  PASSED (exit 0)
 # IMAP diagnostics:  PASSED (exit 0)
 # Critical failures: 0
-# Warnings:          6
-# Finished:          2026-11-13T09:36:37Z (duration 2m 37s)
+# Warnings:          4
+# Finished:          2026-11-23T10:51:57Z (duration 2m 43s)
 # Result:            PASSED
 #################################################
 ```
