@@ -2,10 +2,18 @@
   "schema_version": 1,
   "alias": "Bingo",
   "private": true,
-  "total_runs": 35,
-  "passed_runs": 32,
+  "total_runs": 36,
+  "passed_runs": 33,
   "failed_runs": 3,
   "runs": [
+    {
+      "number": 36,
+      "timestamp": "2026-11-27T10:57:01Z",
+      "status": "passed",
+      "exit_code": 0,
+      "failures": 0,
+      "warnings": 4
+    },
     {
       "number": 35,
       "timestamp": "2026-11-26T10:59:28Z",
@@ -77,14 +85,6 @@
       "exit_code": 0,
       "failures": 0,
       "warnings": 7
-    },
-    {
-      "number": 26,
-      "timestamp": "2026-11-17T10:48:31Z",
-      "status": "passed",
-      "exit_code": 0,
-      "failures": 0,
-      "warnings": 6
     }
   ]
 }
